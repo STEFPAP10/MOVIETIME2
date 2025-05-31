@@ -1,0 +1,875 @@
+* {
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color:#151515;
+  overflow-x:hidden;
+}
+::-webkit-scrollbar{
+  display: none;
+}
+
+.navbar {
+  width: 100%;
+  height: 3.125rem;
+  background-color: black;
+  position: sticky;
+  top: 0;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  padding: 0 3.125rem;
+  height: 100%;
+  color: white;
+  font-family: "Sen", sans-serif;
+}
+
+.logo-container {
+  flex: 1;
+}
+
+.logo {
+  font-size: 1.875rem;
+  color: #4dbf00;
+}
+
+.menu-container {
+  flex: 6;
+}
+
+.menu-list {
+  display: flex;
+  list-style: none;
+}
+
+.menu-list-item {
+  margin-right: 1.875rem;
+  
+}
+
+.menu-list-item.active {
+  font-weight: bold;
+}
+
+.menu-list-item:hover a{
+  color: #4dbf00;
+  cursor: pointer;
+}
+
+.menu-list-item a{
+  color: #fff;
+  text-decoration: none;
+}
+.profile-container {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.profile-text-container {
+  margin: 0 1.25rem;
+}
+
+.profile-picture {
+  width: 2.0rem;
+  height: 2.0rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+
+.sidebar {
+  width: 3.125rem;
+  height: 100%;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3.75rem;
+}
+
+.left-menu-icon {
+  color: white;
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.left-menu-icon:hover{
+  cursor: pointer;
+  color: #4dbf00;
+}
+/* Κρύβει αρχικά το πάνελ    αναζητησσης*/
+.search-panel.hidden {
+  display: none;
+}
+
+/* Καλύπτει όλη την οθόνη όταν είναι ενεργό */
+.search-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #111; 
+  color: white;
+  z-index: 1000;
+  padding: 2.5rem 1.25rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+
+.search-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.875rem;
+}
+
+input {
+  flex: 1;
+  padding: 0.75rem 1.0rem;
+  font-size: 1.125rem;
+  border: none;
+  border-radius: 0.3125rem;
+  background: #111;
+  border: 0.125rem solid gray;
+  color: white;
+}
+
+#close-search {
+  font-size: 3.125rem;
+  color: white;
+  background: transparent;
+  border: none;
+  margin-left: 1.25rem;
+  cursor: pointer;
+}
+
+#close-search:hover{
+  color: #4dbf00;
+}
+
+#close-search:active{transform: scale(1.1);}
+
+
+/* Αποτελέσματα αναζήτησης */
+.search-results {
+  display: flex;
+  align-items: flex-start;
+  justify-content:center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem;
+
+}
+
+/* Απόκρυψη όταν δεν είναι ενεργό */
+.favorites-panel.hidden {
+  display: none;
+}
+
+/* Ενεργό favorites panel */
+.favorites-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #111;
+  color: white;
+  z-index: 1500;
+  padding: 2.5rem 1.25rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.favorites-panel h2{
+  color: #4dbf00;
+}
+
+/* Κουμπί κλεισίματος */
+.close-favorites {
+  font-size: 3.125rem;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 1.25rem;
+  right: 1.875rem;
+}
+
+.close-favorites:hover {
+  color: #4dbf00;
+}
+
+.close-favorites:active {
+  transform: scale(1.1);
+}
+
+/* Περιεχόμενο αγαπημένων */
+.favorites-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 5.0rem;
+  justify-content: center;
+}
+
+
+.container {
+  background-color: #151515;
+  min-height: calc(100vh - 3.125rem);
+  color: white;
+}
+
+.content-container {
+  margin-left: 3.125rem;
+}
+
+.featured-content {
+  height: 50vh;
+  padding: 3.125rem;
+}
+
+.featured-title {
+  width: 12.5rem;
+}
+
+.featured-desc {
+  width: 31.25rem;
+  color: lightgray;
+  margin: 1.875rem 0;
+}
+
+.featured-button {
+  background-color: #4dbf00;
+  color: white;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.625rem;
+  border: none;
+  outline: none;
+  font-weight: bold;
+}
+
+
+.movie-list-title{
+  color: #4dbf00;
+}
+
+.movie-list-container {
+  padding: 0 1.25rem;
+}
+
+.movie-list-wrapper {
+  position: relative;
+  /* overflow: hidden; */
+}
+
+
+.movie-list {
+  display: flex;
+  align-items: center;
+  height: 18.75rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px;
+ 
+}
+
+
+
+
+.movie-list-item {
+  margin-right: 1.875rem;
+  position: relative;
+}
+
+.movie-list-item:hover .movie-list-item-img {
+  transform: scale(1.2);
+  margin: 0 1.875rem;
+  opacity: 0.5;
+}
+
+.movie-list-item:hover .movie-list-item-title,
+.movie-list-item:hover .movie-list-item-desc,
+.movie-list-item:hover .movie-list-item-button {
+  opacity: 1;
+}
+
+.movie-list-item-img {
+  transition: all 1s ease-in-out;
+  width: 16.875rem;
+  height: 12.5rem;
+  object-fit: cover;
+  border-radius: 1.25rem;
+}
+
+.movie-list-item-title {
+  background-color: #333;
+  padding: 0 0.625rem;
+  font-size: 2.0rem;
+  font-weight: bold;
+  position: absolute;
+  top: 10%;
+  left: 3.125rem;
+  max-width: 12.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  transition: 1s all ease-in-out;
+}
+
+.movie-list-item-desc {
+  background-color: #333;
+  padding: 0.625rem;
+  font-size: 0.875rem;
+  position: absolute;
+  top: 30%;
+  left: 3.125rem;
+  width: 14.375rem;
+  height: 3.75rem; /* σταθερό ύψος */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  transition: 1s all ease-in-out;
+}
+
+
+.movie-list-item-button {
+  padding: 0.625rem;
+  background-color: #4dbf00;
+  color: white;
+  border-radius: 0.625rem;
+  outline: none;  
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 1.25rem;
+  left: 3.125rem;
+  opacity: 0;
+  transition: 1s all ease-in-out;
+}
+
+.arrow {
+  font-size: 7.5rem;
+  position: absolute;
+  top: 5.625rem;
+  right: 0;
+  color: lightgray;
+  opacity: 0.5;
+  cursor: pointer;
+  color: #4dbf00;
+}
+
+.popup-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+   /* background-image: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, 1)), url(https://unsplash.it/1600/900);  */
+  background-size: cover;
+  background-position: center;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  overflow-y: scroll;
+  transform: scale(0);
+  transition: 200ms ease-in-out transform;
+  z-index: 2000;
+}
+.content {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+  width: 75.0rem;
+  margin-top: 10rem;
+}
+.content .left .single-info {
+  font-size: 1rem;
+  padding: 1.25rem;
+}
+.content .left .single-info .heart-icon {
+  font-size: 2rem;
+  user-select: none;
+  cursor: pointer;
+}
+.content .left .single-info .heart-icon:hover { transform: scale(1.3); }
+.content .left .single-info .heart-icon:active { transform: scale(.9); }
+
+.poster-img {
+  width: 18.75rem;
+  height: 25.0rem;
+  overflow: hidden;
+  border-radius: .5rem;
+  box-shadow: 0 0 .5rem #4dbf00;
+  border: 0.0625rem solid #4dbf00;
+}
+.poster-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.single-info-container { width: 12.5rem; }
+.right > *:not(h1) { margin: 1rem 0; }
+.trailer iframe {
+  border: 0.125rem solid rgb(36, 217, 75);
+  box-shadow: 0 0 .5rem rgb(22, 224, 55);
+  border-radius: .5rem;
+  max-width: 25.0rem;
+  width: 100%;
+  height: 12.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.single-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.x-icon {
+  font-size: 2rem;
+  position: absolute;
+  top: 6.25rem;
+  right: 6.25rem;
+  cursor: pointer;
+  user-select: none;
+}
+.x-icon:hover { transform: scale(1.3); }
+.x-icon:active { transform: scale(1); }
+
+.show-popup { transform: scale(1); }
+
+.change-color { color: #ff0000; }
+
+.profile-container {
+  position: relative;
+}
+
+
+.heart-icon.active {
+  color: red;
+  cursor: pointer;
+}
+.heart-icon {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: black;
+  border: 1px solid #4dbf00;
+  padding: 0.5rem 0;
+  border-radius: 0.25rem;
+  list-style: none;
+  z-index: 1000;
+}
+
+.dropdown-item {
+  padding: 0.5rem 1.5rem;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dropdown-item:hover {
+  background-color: #4dbf00;
+  color: black;
+}
+
+
+.profile-picture:hover{
+  cursor: pointer;
+}
+
+.dropdown-menu.extended {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  background-color: #111;
+  border-left: 2px solid #4dbf00;
+  padding: 1rem;
+  width: 260px;
+  height: 450px;
+  overflow-y: auto;
+  z-index: 9999 !important;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.profile-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.profile-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.profile-avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.menu-options {
+  list-style: none;
+  padding: 0.5rem 0;
+}
+
+.menu-options li {
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+}
+
+.menu-options li:hover {
+  background-color: #4dbf00;
+  color: black;
+}
+
+.profile-item.active{
+  color: #4dbf00;
+  font-weight: bold;
+  border-radius: 0.5rem;
+}
+
+.settings-panel {
+  padding: 2rem;
+  color: white;
+}
+
+.settings-section {
+  margin-top: 2rem;
+}
+
+.option {
+  border-bottom: 1px solid gray;
+  padding: 1rem 0;
+  cursor: pointer;
+}
+
+.option.selected h3 {
+  color: #4dbf00;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* πολύ σημαντικό! */
+  flex-direction: column;
+}
+
+.account-container {
+  background-color: #141414; /* σκοτεινό φόντο */
+  color: white;
+  padding: 2rem;
+  max-width: 600px;
+  margin: 3rem auto;
+  border-radius: 10px;
+  font-family: sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.account-container h1 {
+  color: #00ff44; /* έντονο πράσινο */
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.account-container img.avatar {
+  display: block;
+  margin: 0 auto 1.5rem;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid #00ff44;
+}
+
+.account-container p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+.account-container button {
+  display: block;
+  margin: 2rem auto 0;
+  background-color: #00ff44;
+  color: black;
+  font-weight: bold;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.account-container button:hover {
+  background-color: #00cc3a;
+}
+
+.delete-btn {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background 0.3s;
+}
+
+.delete-btn:hover {
+  background-color: #cc0000;
+}
+
+
+.game-preview {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #222;
+  color: #ccc;
+  text-align: center;
+  border-radius: 8px;
+  font-style: italic;
+}
+
+.ranking-container {
+  max-width: 700px;
+  margin: 3rem auto;
+  background-color: #141414;
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.ranking-container h1 {
+  text-align: center;
+  color: #00ff44;
+  margin-bottom: 2rem;
+}
+
+.ranking-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ranking-item {
+  display: flex;
+  align-items: center;
+  background-color: #1e1e1e;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.ranking-item:hover {
+  transform: scale(1.02);
+  background-color: #222;
+}
+
+.rank {
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 2rem;
+  text-align: right;
+  margin-right: 1rem;
+  color: #ffd700;
+}
+
+.ranking-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 1rem;
+  object-fit: cover;
+  border: 2px solid #00ff44;
+}
+
+.ranking-name {
+  flex-grow: 1;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.ranking-score {
+  font-weight: bold;
+  color: #00ff44;
+}
+.go-back {
+  margin-top: 2rem;
+  padding: 0.5rem 1.5rem;
+  background-color: #00ff44;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.go-back:hover {
+  background-color: #00cc3a;
+}
+
+
+.back-button {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #222;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  z-index: 100;
+  border: 2px solid #00ff44;
+}
+
+.back-button:hover {
+  background-color: #333;
+  color: #00ff44;
+}
+
+.star-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.star {
+  color: #555;
+  transition: color 0.2s;
+}
+
+.star.filled {
+  color: #ffd700;
+}
+
+.score-display {
+  font-size: 1.1rem;
+  color: #00ff44;
+  margin-left: 10px;
+}
+
+.rating-section {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* ✅ δημιουργεί διάστημα ανάμεσα σε κείμενο και αστέρια */
+}
+ 
+.cart-icon:hover{
+  cursor: pointer;
+}
+
+/* CART PAGE */
+.cart-layout {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 50px;
+  color: white;
+  background-color: #111;
+}
+
+.cart-left {
+  flex: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 70%;
+}
+
+.cart-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.cart-button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 200px;
+}
+
+.cart-button.continue {
+  background-color: #00cc00;
+  color: white;
+}
+
+.cart-button.exit {
+  background-color: #cc0000;
+  color: white;
+}
+
+.checkout-page {
+  background-color: #111;
+  min-height: 100vh;
+  padding: 50px;
+  color: white;
+  text-align: center;
+}
+
+.checkout-page h1 {
+  color: #00ff00;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.checkout-page p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
